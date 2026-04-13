@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дала Қырандары | Волонтер</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo"><i class="fas fa-eagle"></i><h1 id="logoText">ДАЛА ҚЫРАНДАРЫ</h1></div>
+            <div class="top-controls">
+                <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> <span id="backText">Артқа</span></button>
+                <button class="theme-btn" id="themeToggle"><i class="fas fa-moon"></i> <span id="themeText">Түнгі режим</span></button>
+                <button class="lang-btn" data-lang="kk">ҚАЗ</button>
+                <button class="lang-btn" data-lang="ru">РУС</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" data-nav="home">Басты</a>
+            <a href="about.html" data-nav="about">Біз туралы</a>
+            <a href="projects.html" data-nav="projects">Жобалар</a>
+            <a href="directions.html" data-nav="directions">Бағыттар</a>
+            <a href="achievements.html" data-nav="achievements">Жетістіктер</a>
+            <a href="team.html" data-nav="team">Команда</a>
+            <a href="news.html" data-nav="news">Жаңалықтар</a>
+            <a href="donate.html" data-nav="donate">Көмек көрсету</a>
+            <a href="volunteer.html" data-nav="volunteer">Волонтер</a>
+            <a href="contact.html" data-nav="contact">Байланыс</a>
+        </div>
+    </div>
+
+    <section>
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title" data-vol="title">Волонтер болу</h2>
+            <p data-vol="desc" style="max-width: 600px; margin: 20px auto;">Біздің командаға қосылып, өзгерістердің бір бөлігі болыңыз! Волонтерлерге арналған арнайы оқу бағдарламасы, сертификаттар және тәжірибе.</p>
+            <div class="grid-2" style="margin-top: 30px;">
+                <div class="card"><i class="fas fa-chalkboard-user"></i><h3 data-vol="whatTitle">Не күтеді?</h3><p data-vol="whatDesc">✅ Тегін тренингтер<br>✅ Сертификат<br>✅ Жаңа достар<br>✅ Қызықты жобалар</p></div>
+                <div class="card"><i class="fas fa-clipboard-list"></i><h3 data-vol="whoTitle">Кім бола алады?</h3><p data-vol="whoDesc">✅ 14-35 жас аралығындағы жастар<br>✅ Белсенділер<br>✅ Өзгерістерге дайындар</p></div>
+            </div>
+            <button class="btn" id="volunteerBtn" data-vol="btn">Волонтерге тіркелу</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://instagram.com/qyrandary.kz" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/qyrandary" target="_blank"><i class="fab fa-telegram"></i></a>
+            </div>
+            <p id="footerText">«Дала Қырандары» – Қазақстан жастар қоғамдық бірлестігі.</p>
+            <p>&copy; 2025 Дала Қырандары</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const pageTranslations = {
+            kk: { title:"Волонтер болу", desc:"Біздің командаға қосылып, өзгерістердің бір бөлігі болыңыз!", whatTitle:"Не күтеді?", whatDesc:"✅ Тегін тренингтер\n✅ Сертификат\n✅ Жаңа достар\n✅ Қызықты жобалар", whoTitle:"Кім бола алады?", whoDesc:"✅ 14-35 жас\n✅ Белсенділер\n✅ Өзгерістерге дайындар", btn:"Волонтерге тіркелу" },
+            ru: { title:"Стать волонтёром", desc:"Присоединяйтесь к нашей команде!", whatTitle:"Что вас ждёт?", whatDesc:"✅ Бесплатные тренинги\n✅ Сертификат\n✅ Новые друзья\n✅ Интересные проекты", whoTitle:"Кто может стать?", whoDesc:"✅ Молодёжь 14-35 лет\n✅ Активные\n✅ Готовые к переменам", btn:"Записаться волонтёром" },
+            en: { title:"Become a volunteer", desc:"Join our team and be part of the change!", whatTitle:"What awaits?", whatDesc:"✅ Free trainings\n✅ Certificate\n✅ New friends\n✅ Exciting projects", whoTitle:"Who can join?", whoDesc:"✅ Youth 14-35 years\n✅ Active\n✅ Ready for change", btn:"Register as volunteer" }
+        };
+        document.getElementById('volunteerBtn')?.addEventListener('click', () => {
+            let name = prompt('Аты-жөніңіз? / Ваше имя? / Your name?');
+            if (name) alert(`✅ ${name}, сіз волонтерлер тізіміне қосылдыңыз! Біз сізге хабарласамыз.`);
+        });
+        document.addEventListener('langChanged', (e) => {
+            const lang = e.detail.lang;
+            const t = pageTranslations[lang];
+            for (let key in t) document.querySelector(`[data-vol="${key}"]`).innerText = t[key];
+        });
+    </script>
+</body>
+</html>

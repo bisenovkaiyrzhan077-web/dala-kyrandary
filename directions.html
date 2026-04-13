@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дала Қырандары | Бағыттар</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo"><i class="fas fa-eagle"></i><h1 id="logoText">ДАЛА ҚЫРАНДАРЫ</h1></div>
+            <div class="top-controls">
+                <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> <span id="backText">Артқа</span></button>
+                <button class="theme-btn" id="themeToggle"><i class="fas fa-moon"></i> <span id="themeText">Түнгі режим</span></button>
+                <button class="lang-btn" data-lang="kk">ҚАЗ</button>
+                <button class="lang-btn" data-lang="ru">РУС</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" data-nav="home">Басты</a>
+            <a href="about.html" data-nav="about">Біз туралы</a>
+            <a href="projects.html" data-nav="projects">Жобалар</a>
+            <a href="directions.html" data-nav="directions">Бағыттар</a>
+            <a href="achievements.html" data-nav="achievements">Жетістіктер</a>
+            <a href="team.html" data-nav="team">Команда</a>
+            <a href="news.html" data-nav="news">Жаңалықтар</a>
+            <a href="donate.html" data-nav="donate">Көмек көрсету</a>
+            <a href="volunteer.html" data-nav="volunteer">Волонтер</a>
+            <a href="contact.html" data-nav="contact">Байланыс</a>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title" data-dir="title">Негізгі бағыттар</h2>
+            <div class="grid-3">
+                <div class="card"><i class="fas fa-shield-alt"></i><h3 data-dir="d1">Есірткімен күрес</h3><p data-dir="d1d">Нашақорлыққа қарсы рейдтер, профилактика. 15+ рейд.</p></div>
+                <div class="card"><i class="fas fa-futbol"></i><h3 data-dir="d2">Спортты дамыту</h3><p data-dir="d2d">Бокс, күрес, жаттығулар. 30+ спорттық іс-шара.</p></div>
+                <div class="card"><i class="fas fa-hand-holding-heart"></i><h3 data-dir="d3">Қайырымдылық</h3><p data-dir="d3d">«Жұма жақсылығы» акциясы. 20+ отбасыға көмек.</p></div>
+                <div class="card"><i class="fas fa-eye"></i><h3 data-dir="d4">Қоғамдық бақылау</h3><p data-dir="d4d">Әкімдердің жұмысын бақылау. 10+ мәселе шешілді.</p></div>
+                <div class="card"><i class="fas fa-tree"></i><h3 data-dir="d5">Экология</h3><p data-dir="d5d">Табиғатты қорғау акциялары. 500+ ағаш отырғызылды.</p></div>
+                <div class="card"><i class="fas fa-graduation-cap"></i><h3 data-dir="d6">Білім беру</h3><p data-dir="d6d">Тренингтер, семинарлар. 1000+ жастар оқытылды.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://instagram.com/qyrandary.kz" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/qyrandary" target="_blank"><i class="fab fa-telegram"></i></a>
+            </div>
+            <p id="footerText">«Дала Қырандары» – Қазақстан жастар қоғамдық бірлестігі.</p>
+            <p>&copy; 2025 Дала Қырандары</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const pageTranslations = {
+            kk: { title:"Негізгі бағыттар", d1:"Есірткімен күрес", d1d:"Нашақорлыққа қарсы рейдтер. 15+ рейд.", d2:"Спортты дамыту", d2d:"Бокс, күрес, жаттығулар. 30+ іс-шара.", d3:"Қайырымдылық", d3d:"«Жұма жақсылығы». 20+ отбасыға көмек.", d4:"Қоғамдық бақылау", d4d:"Әкімдерді бақылау. 10+ мәселе шешілді.", d5:"Экология", d5d:"Табиғатты қорғау. 500+ ағаш.", d6:"Білім беру", d6d:"Тренингтер. 1000+ жастар оқытылды." },
+            ru: { title:"Основные направления", d1:"Борьба с наркотиками", d1d:"Рейды, профилактика. 15+ рейдов.", d2:"Развитие спорта", d2d:"Бокс, борьба, тренировки. 30+ мероприятий.", d3:"Благотворительность", d3d:"«Пятница добра». Помощь 20+ семьям.", d4:"Общественный контроль", d4d:"Контроль за акимами. 10+ проблем решено.", d5:"Экология", d5d:"Охрана природы. 500+ деревьев.", d6:"Образование", d6d:"Тренинги. 1000+ молодых обучено." },
+            en: { title:"Main directions", d1:"Anti-drug fight", d1d:"Raids, prevention. 15+ raids.", d2:"Sports development", d2d:"Boxing, wrestling. 30+ events.", d3:"Charity", d3d:"Friday of Goodness. Helped 20+ families.", d4:"Public control", d4d:"Monitoring akims. 10+ problems solved.", d5:"Ecology", d5d:"Nature protection. 500+ trees planted.", d6:"Education", d6d:"Trainings. 1000+ youth trained." }
+        };
+        document.addEventListener('langChanged', (e) => {
+            const lang = e.detail.lang;
+            const t = pageTranslations[lang];
+            for (let key in t) document.querySelector(`[data-dir="${key}"]`).innerText = t[key];
+        });
+    </script>
+</body>
+</html>

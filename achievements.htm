@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дала Қырандары | Жетістіктер</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo"><i class="fas fa-eagle"></i><h1 id="logoText">ДАЛА ҚЫРАНДАРЫ</h1></div>
+            <div class="top-controls">
+                <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> <span id="backText">Артқа</span></button>
+                <button class="theme-btn" id="themeToggle"><i class="fas fa-moon"></i> <span id="themeText">Түнгі режим</span></button>
+                <button class="lang-btn" data-lang="kk">ҚАЗ</button>
+                <button class="lang-btn" data-lang="ru">РУС</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" data-nav="home">Басты</a>
+            <a href="about.html" data-nav="about">Біз туралы</a>
+            <a href="projects.html" data-nav="projects">Жобалар</a>
+            <a href="directions.html" data-nav="directions">Бағыттар</a>
+            <a href="achievements.html" data-nav="achievements">Жетістіктер</a>
+            <a href="team.html" data-nav="team">Команда</a>
+            <a href="news.html" data-nav="news">Жаңалықтар</a>
+            <a href="donate.html" data-nav="donate">Көмек көрсету</a>
+            <a href="volunteer.html" data-nav="volunteer">Волонтер</a>
+            <a href="contact.html" data-nav="contact">Байланыс</a>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title" data-ach="title">Марапаттар мен жетістіктер</h2>
+            <div class="grid-3">
+                <div class="card"><i class="fas fa-medal"></i><h3 data-ach="a1">Үздік жастар ұйымы 2024</h3><p data-ach="a1d">Астана әкімдігінің сыйлығы</p></div>
+                <div class="card"><i class="fas fa-award"></i><h3 data-ach="a2">Қайырымдылық саласындағы үздік жоба</h3><p data-ach="a2d">«Жұма жақсылығы» акциясы</p></div>
+                <div class="card"><i class="fas fa-trophy"></i><h3 data-ach="a3">Спортты дамытуға қосқан үлес</h3><p data-ach="a3d">ҚР Туризм және спорт министрлігі</p></div>
+                <div class="card"><i class="fas fa-shield-alt"></i><h3 data-ach="a4">Құқықтық тәртіпке қосқан үлес</h3><p data-ach="a4d">ІІМ Алғыс хаты</p></div>
+                <div class="card"><i class="fas fa-globe"></i><h3 data-ach="a5">Халықаралық деңгейде танылу</h3><p data-ach="a5d">Орталық Азия жастар форумы</p></div>
+                <div class="card"><i class="fas fa-users"></i><h3 data-ach="a6">1000+ жасты біріктіру</h3><p data-ach="a6d">Еліміздің 12 қаласында</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://instagram.com/qyrandary.kz" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/qyrandary" target="_blank"><i class="fab fa-telegram"></i></a>
+            </div>
+            <p id="footerText">«Дала Қырандары» – Қазақстан жастар қоғамдық бірлестігі.</p>
+            <p>&copy; 2025 Дала Қырандары</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const pageTranslations = {
+            kk: { title:"Марапаттар мен жетістіктер", a1:"Үздік жастар ұйымы 2024", a1d:"Астана әкімдігі", a2:"Қайырымдылық саласындағы үздік жоба", a2d:"«Жұма жақсылығы»", a3:"Спортты дамытуға қосқан үлес", a3d:"Спорт министрлігі", a4:"Құқықтық тәртіпке қосқан үлес", a4d:"ІІМ Алғыс хаты", a5:"Халықаралық деңгейде танылу", a5d:"Орталық Азия форумы", a6:"1000+ жасты біріктіру", a6d:"12 қалада" },
+            ru: { title:"Награды и достижения", a1:"Лучшая молодёжная организация 2024", a1d:"Акимат Астаны", a2:"Лучший проект в благотворительности", a2d:"«Пятница добра»", a3:"Вклад в развитие спорта", a3d:"Минспорта РК", a4:"Вклад в правопорядок", a4d:"Благодарность МВД", a5:"Международное признание", a5d:"Форум молодёжи ЦА", a6:"Объединение 1000+ молодых", a6d:"В 12 городах" },
+            en: { title:"Awards & achievements", a1:"Best Youth Organization 2024", a1d:"Astana Akimat", a2:"Best Charity Project", a2d:"Friday of Goodness", a3:"Contribution to sports development", a3d:"Ministry of Sports", a4:"Contribution to legal order", a4d:"MIA Letter of Thanks", a5:"International recognition", a5d:"Central Asia Youth Forum", a6:"United 1000+ youth", a6d:"In 12 cities" }
+        };
+        document.addEventListener('langChanged', (e) => {
+            const lang = e.detail.lang;
+            const t = pageTranslations[lang];
+            for (let key in t) document.querySelector(`[data-ach="${key}"]`).innerText = t[key];
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дала Қырандары | Жаңалықтар</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo"><i class="fas fa-eagle"></i><h1 id="logoText">ДАЛА ҚЫРАНДАРЫ</h1></div>
+            <div class="top-controls">
+                <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> <span id="backText">Артқа</span></button>
+                <button class="theme-btn" id="themeToggle"><i class="fas fa-moon"></i> <span id="themeText">Түнгі режим</span></button>
+                <button class="lang-btn" data-lang="kk">ҚАЗ</button>
+                <button class="lang-btn" data-lang="ru">РУС</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" data-nav="home">Басты</a>
+            <a href="about.html" data-nav="about">Біз туралы</a>
+            <a href="projects.html" data-nav="projects">Жобалар</a>
+            <a href="directions.html" data-nav="directions">Бағыттар</a>
+            <a href="achievements.html" data-nav="achievements">Жетістіктер</a>
+            <a href="team.html" data-nav="team">Команда</a>
+            <a href="news.html" data-nav="news">Жаңалықтар</a>
+            <a href="donate.html" data-nav="donate">Көмек көрсету</a>
+            <a href="volunteer.html" data-nav="volunteer">Волонтер</a>
+            <a href="contact.html" data-nav="contact">Байланыс</a>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title" data-news="title">Соңғы жаңалықтар</h2>
+            <div class="event-list" id="newsList"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://instagram.com/qyrandary.kz" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/qyrandary" target="_blank"><i class="fab fa-telegram"></i></a>
+            </div>
+            <p id="footerText">«Дала Қырандары» – Қазақстан жастар қоғамдық бірлестігі.</p>
+            <p>&copy; 2025 Дала Қырандары</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const newsData = {
+            kk: ["🏆 Оралда «Жұма жақсылығы» кино кеші: 350 000 ₸ жиналды.", "📋 Нашақорлыққа қарсы 2026-2028 жоспары талқыланды.", "🥊 Штабта жастар бокс турнирі өтті, 50+ қатысушы.", "🌿 Таза Қазақстан акциясы: 200 ағаш отырғызылды.", "🤝 Жаңа серіктес: Астана әкімдігімен меморандумға қол қойылды."],
+            ru: ["🏆 Киновечер «Пятница добра» в Уральске: собрано 350 000 ₸.", "📋 Обсуждён план борьбы с наркоманией на 2026-2028 гг.", "🥊 В штабе прошёл боксёрский турнир, 50+ участников.", "🌿 Акция «Чистый Казахстан»: посажено 200 деревьев.", "🤝 Новый партнёр: подписан меморандум с акиматом Астаны."],
+            en: ["🏆 Friday of Goodness movie night in Uralsk: 350,000 ₸ raised.", "📋 Anti-drug plan for 2026-2028 discussed.", "🥊 Youth boxing tournament at HQ, 50+ participants.", "🌿 Clean Kazakhstan campaign: 200 trees planted.", "🤝 New partner: Memorandum signed with Astana akimat."]
+        };
+        function updateNews() {
+            const lang = localStorage.getItem('lang') || 'kk';
+            const container = document.getElementById('newsList');
+            if (container) {
+                container.innerHTML = newsData[lang].map(n => `<div class="event-item"><strong>📢</strong> <p>${n}</p></div>`).join('');
+            }
+        }
+        document.addEventListener('langChanged', () => updateNews());
+        updateNews();
+    </script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    line-height: 1.5;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background-color: #f5f5f5;
+    color: #1a1a1a;
+}
+
+body.light-mode .card {
+    background: #ffffff;
+    border-color: #ddd;
+}
+
+body.light-mode .navbar {
+    border-bottom-color: #ddd;
+}
+
+body.light-mode .nav-links a {
+    color: #333;
+}
+
+body.light-mode .event-item,
+body.light-mode .stat-item {
+    background: #fff;
+}
+
+:root {
+    --red: #b22222;
+    --red-dark: #8b1a1a;
+    --red-light: #cc3333;
+    --card-bg: #111111;
+    --border-gray: #222;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ========== НАВИГАЦИЯ ========== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-bottom: 1px solid var(--border-gray);
+}
+
+/* ========== ЛОГОТИП (ҚЫРАН + МӘТІН) ========== */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon svg {
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.logo-text h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #fff 30%, var(--red) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.logo-text p {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin: 0;
+    color: var(--red);
+}
+
+body.light-mode .logo-text p {
+    color: var(--red);
+}
+
+/* ========== НАВИГАЦИЯ СІЛТЕМЕЛЕРІ ========== */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--red);
+}
+
+/* ========== БАСҚАРУ ПАНЕЛІ (тіл, артқа, түнгі режим) ========== */
+.top-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.lang-btn,
+.back-btn,
+.theme-btn {
+    background: transparent;
+    border: 1px solid var(--red);
+    color: var(--red);
+    padding: 6px 14px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.lang-btn:hover,
+.back-btn:hover,
+.theme-btn:hover {
+    background: var(--red);
+    color: #0a0a0a;
+}
+
+/* ========== КНОПКАЛАР ========== */
+.btn {
+    display: inline-block;
+    background: var(--red);
+    color: #0a0a0a;
+    font-weight: 700;
+    padding: 12px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--red);
+    color: var(--red);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    background: var(--red-dark);
+}
+
+/* ========== HERO БӨЛІМІ ========== */
+.hero {
+    padding: 80px 0 100px;
+    text-align: center;
+    background: radial-gradient(circle at 20% 30%, #0f0f0f, #030303);
+}
+
+body.light-mode .hero {
+    background: #e0e0e0;
+}
+
+.hero h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: var(--red);
+}
+
+/* ========== СЕКЦИЯЛАР ========== */
+section {
+    padding: 70px 0;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 70px;
+    height: 4px;
+    background: var(--red);
+}
+
+.subtitle {
+    color: #aaa;
+    margin-bottom: 48px;
+    font-size: 1rem;
+}
+
+/* ========== ТОРЛАР (GRID) ========== */
+.grid-2,
+.grid-3,
+.grid-4 {
+    display: grid;
+    gap: 30px;
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.grid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* ========== КАРТОЧКАЛАР ========== */
+.card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 28px;
+    transition: 0.25s;
+    border: 1px solid #222;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--red);
+}
+
+.card i {
+    font-size: 2.5rem;
+    color: var(--red);
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+}
+
+/* ========== СТАТИСТИКА ========== */
+.stat-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: center;
+}
+
+.stat-item {
+    flex: 1;
+    background: #0c0c0c;
+    padding: 28px;
+    border-radius: 24px;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--red);
+}
+
+/* ========== ЖАҢАЛЫҚТАР ========== */
+.event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.event-item {
+    background: #0e0e0e;
+    padding: 20px;
+    border-left: 5px solid var(--red);
+    border-radius: 16px;
+}
+
+/* ========== ГАЛЕРЕЯ ========== */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.gallery-item {
+    background: #1a1a1a;
+    border-radius: 16px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--red);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+    border: 1px solid var(--red);
+}
+
+/* ========== DONATE ПРОГРЕСС ========== */
+.donate-progress {
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+.progress-bar-container {
+    background: #222;
+    border-radius: 30px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 25%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--red), var(--red-light));
+    transition: width 0.5s;
+}
+
+.donate-input-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.donate-input-group input {
+    padding: 12px 20px;
+    border-radius: 40px;
+    border: 1px solid #444;
+    background: #1a1a1a;
+    color: white;
+}
+
+/* ========== КАРТА ========== */
+.map-container {
+    background: #1a1a1a;
+    border-radius: 24px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.map-placeholder {
+    background: #2a2a2a;
+    border-radius: 16px;
+    padding: 40px;
+    color: var(--red);
+}
+
+/* ========== FAQ ========== */
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-question {
+    background: #1a1a1a;
+    padding: 16px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+
+.faq-answer {
+    padding: 16px 20px;
+    display: none;
+    color: #aaa;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background: #050505;
+    padding: 50px 0 30px;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-bottom: 30px;
+}
+
+.social-links a {
+    color: #aaa;
+    font-size: 1.8rem;
+    transition: 0.2s;
+}
+
+.social-links a:hover {
+    color: var(--red);
+}
+
+/* ========== МОБИЛЬДІ БЕЙІМДЕЛУ ========== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .stat-grid {
+        flex-direction: column;
+    }
+
+    .logo-text h1 {
+        font-size: 1.2rem;
+    }
+
+    .logo-text p {
+        font-size: 0.6rem;
+    }
+}
